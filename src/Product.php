@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme;
+namespace AcmeWidgetBasket;
 
 class Product
 {
@@ -18,5 +18,10 @@ class Product
     public function getPrice(): float
     {
         return $this->price;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 }
