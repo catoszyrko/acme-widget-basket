@@ -1,0 +1,17 @@
+{
+    "name": "yamil/acme-widget-basket",
+    "description": "Basket proof of concept for Acme Widget Co",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Yamil\\AcmeWidgetBasket\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yamil"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
