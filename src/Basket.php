@@ -3,6 +3,7 @@
 namespace AcmeWidgetBasket;
 
 use AcmeWidgetBasket\Services\DeliveryCalculator;
+use AcmeWidgetBasket\Services\OfferCalculator;
 
 class Basket
 {
@@ -20,6 +21,9 @@ class Basket
         foreach ($this->products as $product) {
             $total += $product->getPrice();
         }
+
+        $offerCalculator = new OfferCalculator();
+        $total -= $offerCalculator->calculate($this->products);
 
         $deliveryCalculator = new DeliveryCalculator();
         $total += $deliveryCalculator->calculate($total);
