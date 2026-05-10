@@ -6,7 +6,7 @@ use AcmeWidgetBasket\Basket;
 
 class BasketTest extends TestCase
 {
-    public function testBasketTotal()
+    public function testBasketTotalWithDeliveryCharge()
     {
         $products = [
             'R01' => new Product('R01','Red Widget',32.95),
@@ -19,6 +19,9 @@ class BasketTest extends TestCase
         $basket->addProduct($products['R01']);
         $basket->addProduct($products['G01']);
 
-        $this->assertEquals(57.90, round($basket->total(), 2));
+        $estimatedTotal = 32.95 + 24.95 + 2.95;
+
+        $this->assertEquals(round($estimatedTotal, 2), round($basket->total(), 2));
     }
 }
+

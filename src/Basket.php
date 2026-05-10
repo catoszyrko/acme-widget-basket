@@ -2,6 +2,8 @@
 
 namespace AcmeWidgetBasket;
 
+use AcmeWidgetBasket\Services\DeliveryCalculator;
+
 class Basket
 {
     private array $products = [];
@@ -18,6 +20,9 @@ class Basket
         foreach ($this->products as $product) {
             $total += $product->getPrice();
         }
+
+        $deliveryCalculator = new DeliveryCalculator();
+        $total += $deliveryCalculator->calculate($total);
 
         return $total;
     }
